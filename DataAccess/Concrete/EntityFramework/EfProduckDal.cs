@@ -45,11 +45,11 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            using (NorthwindContext contex=new NorthwindContext())
+            using (NorthwindContext context = new NorthwindContext())
             {
                 return filter == null
-                  ? contex.Set<Product>().ToList()
-                  : contex.Set<Product>().Where(filter).ToList();
+                  ? context.Set<Product>().ToList()
+                  : context.Set<Product>().Where(filter).ToList();
 
             }
         }

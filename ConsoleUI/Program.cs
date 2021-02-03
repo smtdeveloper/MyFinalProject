@@ -20,6 +20,7 @@ namespace ConsoleUI
             }
             Console.WriteLine("         ");
             Console.WriteLine("SMTcoder");
+            Console.WriteLine( "Samet Akca" ); 
         }
     }
 }
