@@ -48,8 +48,8 @@ namespace DataAccess.Concrete.EntityFramework
             using (NorthwindContext context = new NorthwindContext())
             {
                 return filter == null
-                  ? context.Set<Product>().ToList()
-                  : context.Set<Product>().Where(filter).ToList();
+                    ? context.Set<Product>().ToList() 
+                    : context.Set<Product>().Where(filter).ToList();
 
             }
         }

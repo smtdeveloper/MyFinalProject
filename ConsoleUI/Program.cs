@@ -11,12 +11,15 @@ namespace ConsoleUI
         {
             ProduckManager produckManager = new ProduckManager(new EfProduckDal());
 
-            foreach (var product in produckManager.GetAll())
-            {
+            foreach (var product in produckManager.GetByUnitPrice(50,100))
+            { 
               
                 
-                Console.Write(product.ProduckName);
-               
+                Console.Write("Ürünler : " + product.ProductName + " ********* ");
+                Console.Write("Fiyatları : " + product.UnitPrice + " ********* ");
+                Console.Write("Stoklar : " + product.UnitsInStock + " SMTcoder ");
+                Console.WriteLine(" ");
+
             }
             Console.WriteLine("         ");
             Console.WriteLine("SMTcoder");

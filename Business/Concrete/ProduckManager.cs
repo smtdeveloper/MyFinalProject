@@ -10,12 +10,12 @@ namespace Business.Concrete
 {
     public class ProduckManager : IProduckService
     {
-        IProductDal _prouckDal;
+        IProductDal _produckDal;
 
         public ProduckManager (IProductDal prouckDal)
         {
         
-            _prouckDal = prouckDal;
+            _produckDal = prouckDal;
         }
 
         public List<Product> GetAll()
@@ -23,7 +23,7 @@ namespace Business.Concrete
             // iş kodları - Business code
             // yetkisi var mı  = varsa ürünleri ver 
 
-            return _prouckDal.GetAll();
+            return _produckDal.GetAll();
 
       
             
@@ -31,14 +31,14 @@ namespace Business.Concrete
 
         public List<Product> GetAllByCategoryId(int id)
         {
-            return _prouckDal.GetAll(p => p.CategoryId == id);
+            return _produckDal.GetAll(p => p.CategoryId == id);
 
         
         }
 
         public List<Product> GetByUnitPrice(decimal min, decimal max)
         {
-            return _prouckDal.GetAll(p => p.UnitPrice >=min && p.UnitPrice <=max);
+            return _produckDal.GetAll(p => p.UnitPrice >=min && p.UnitPrice <=max);
 
         }
     }

@@ -14,11 +14,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _products = new List<Product> {
 
-                new Product{  ProductId=1, CategoryId=1, ProduckName="Bardak", UnitPrice=25, UnitInStok=100 },
-                new Product{  ProductId=2, CategoryId=2, ProduckName="Monster",UnitPrice=5000, UnitInStok=10 },
-                new Product{  ProductId=3, CategoryId=2, ProduckName="Telefon", UnitPrice=2000, UnitInStok=50 },
-                new Product{  ProductId=4, CategoryId=2, ProduckName="Ekran", UnitPrice=500, UnitInStok=250 },
-                new Product{  ProductId=5, CategoryId=2, ProduckName="Klavye", UnitPrice=100, UnitInStok=500 }
+                new Product{  ProductId=1, CategoryId=1, ProductName="Bardak", UnitPrice=25, UnitsInStock=100 },
+                new Product{  ProductId=2, CategoryId=2, ProductName="Monster",UnitPrice=5000, UnitsInStock=10 },
+                new Product{  ProductId=3, CategoryId=2, ProductName="Telefon", UnitPrice=2000, UnitsInStock=50 },
+                new Product{  ProductId=4, CategoryId=2, ProductName="Ekran", UnitPrice=500, UnitsInStock=250 },
+                new Product{  ProductId=5, CategoryId=2, ProductName="Klavye", UnitPrice=100, UnitsInStock=500 }
 
 
             };
@@ -79,10 +79,10 @@ namespace DataAccess.Concrete.InMemory
         {
             // Gönderdiğim ürün id'sine sahip olan listedeki ürünü bul
             Product productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
-            productToUpdate.ProduckName = product.ProduckName;
+            productToUpdate.ProductName = product.ProductName;
             productToUpdate.CategoryId = product.CategoryId;
             productToUpdate.UnitPrice = product.UnitPrice;
-            productToUpdate.UnitInStok = product.UnitInStok;
+            productToUpdate.UnitsInStock = product.UnitsInStock;
         }
 
     }
