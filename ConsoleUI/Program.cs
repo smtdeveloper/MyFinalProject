@@ -5,25 +5,38 @@ using System;
 
 namespace ConsoleUI
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
+            // DTO Data Transformation Object
+
+            ProduckTest();
+            //IoC
+            //CategoryTest();
+
+        }
+
+        private static void CategoryTest()
+        {
+            CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+            foreach (var category in categoryManager.GetById(2))
+            {
+                Console.WriteLine(category.CategoryName);
+            }
+        }
+
+        private static void ProduckTest()
+        {
             ProduckManager produckManager = new ProduckManager(new EfProduckDal());
 
-            foreach (var product in produckManager.GetByUnitPrice(50,100))
-            { 
-              
-                
-                Console.Write("Ürünler : " + product.ProductName + " ********* ");
-                Console.Write("Fiyatları : " + product.UnitPrice + " ********* ");
-                Console.Write("Stoklar : " + product.UnitsInStock + " SMTcoder ");
-                Console.WriteLine(" ");
+            foreach (var product in produckManager.GetProduckDetailDtos())
+            {
 
+
+                Console.WriteLine("Ürünler : " + product.ProduckName + "  / CategoryName:  " + product.CategoryName);
+               
             }
-            Console.WriteLine("         ");
-            Console.WriteLine("SMTcoder");
-            Console.WriteLine( "Samet Akca" ); 
         }
     }
 }

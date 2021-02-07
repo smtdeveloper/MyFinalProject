@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,6 +41,12 @@ namespace Business.Concrete
         {
             return _produckDal.GetAll(p => p.UnitPrice >=min && p.UnitPrice <=max);
 
+        }
+
+        public List<ProduckDetailDto> GetProduckDetailDtos()
+        {
+            return _produckDal.GetProduckDetailDtos(); 
+            // bazen copy pasy yaparken hata alırsın, kendin yaz - SMTcoder
         }
     }
 }
