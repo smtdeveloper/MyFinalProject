@@ -11,8 +11,7 @@ namespace DataAccess.Abstract
   public  interface IProductDal : IEntityRepository<Product>
     {
         List<ProduckDetailDto> GetProduckDetailDtos();
-
-
+        List<ProduckDetailDto> GetProductDetails();
     }
 }
 // Code Refactoring - kodun ileştirilmesi  

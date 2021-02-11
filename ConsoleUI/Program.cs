@@ -30,13 +30,27 @@ namespace ConsoleUI
         {
             ProduckManager produckManager = new ProduckManager(new EfProduckDal());
 
-            foreach (var product in produckManager.GetProduckDetailDtos())
+            var result = produckManager.GetProduckDetailDtos();
+            if (result.Success)
             {
-
-
-                Console.WriteLine("Ürünler : " + product.ProduckName + "  / CategoryName:  " + product.CategoryName);
-               
+                foreach (var produck in result.Data)
+                {
+                    Console.WriteLine(produck.CategoryName + " / " + produck.CategoryName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+
+            //foreach (var product in)
+            //{
+
+
+            //    Console.WriteLine("Ürünler : " + product.ProduckName + "  / CategoryName:  " + product.CategoryName);
+               
+            //}
         }
     }
 }
