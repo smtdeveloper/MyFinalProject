@@ -23,7 +23,9 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
+            
             // iş kodları  // business codes 
+
 
             if (product.ProductName.Length < 2)
             {
@@ -69,9 +71,13 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<ProduckDetailDto>> GetProductDetail()
+        public IDataResult<List<ProduckDetailDto>> GetProduckDetailDtos()
         {
-            return new SuccessDataResult<List<ProduckDetailDto>>(_produckDal.GetProductDetails()); 
+            if (DateTime.Now.Hour == 22)
+            {
+                return new ErrorDataResult<List<ProduckDetailDto>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<ProduckDetailDto>>(_produckDal.GetProduckDetailDtos()); 
             // bazen copy pasy yaparken hata alırsın, kendin yaz - SMTcoder
 
         }
